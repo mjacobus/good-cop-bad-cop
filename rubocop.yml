@@ -3,6 +3,7 @@ plugins:
   - rubocop-rails
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rake
 
 inherit_mode:
   merge:
@@ -10,6 +11,7 @@ inherit_mode:
 
 AllCops:
   SuggestExtensions: true
+  NewCops: enable
   Exclude:
     - "data/**/*"
     - "tmp/**/*"
@@ -22,6 +24,8 @@ AllCops:
     - "config/**/*"
     - "db/schema.rb"
 
+  # AllCops:
+  #   SuggestExtensions: false
 Metrics/AbcSize:
   Exclude:
     - "db/migrate/**/*"
