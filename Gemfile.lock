@@ -45,6 +45,7 @@ GEM
     racc (1.8.1)
     rack (3.1.15)
     rainbow (3.1.1)
+    rake (13.2.1)
     regexp_parser (2.10.0)
     rubocop (1.75.8)
       json (~> 2.3)
@@ -88,6 +89,7 @@ PLATFORMS
 
 DEPENDENCIES
   good-cop-bad-cop!
+  rake
 
 BUNDLED WITH
    2.6.8
