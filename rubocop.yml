@@ -1,254 +1,155 @@
 plugins:
   - rubocop-performance
   - rubocop-rails
+  - rubocop-rails
+  - rubocop-rspec
 
 inherit_mode:
   merge:
     - Exclude
 
 AllCops:
-  SuggestExtensions: false
+  SuggestExtensions: true
   Exclude:
     - "data/**/*"
-
-# All cops except your using extensions are disabled by default.
-Bundler:
-  Enabled: false
-Gemspec:
-  Enabled: false
-Layout:
-  Enabled: false
-Lint:
-  Enabled: false
-Metrics:
-  Enabled: false
-Naming:
-  Enabled: false
-Performance:
-  Enabled: false
-  Exclude:
-    - "test/**/*"
-Rails:
-  Enabled: false
-Security:
-  Enabled: false
-Style:
-  Enabled: false
-
-# Align `when` with `end`.
-Layout/CaseIndentation:
-  Enabled: true
-  EnforcedStyle: end
-
-# Align comments with method definitions.
-Layout/CommentIndentation:
-  Enabled: true
-
-Layout/ElseAlignment:
-  Enabled: true
-
-Layout/EmptyLineAfterMagicComment:
-  Enabled: true
-
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: true
-
-# In a regular class definition, no empty lines around the body.
-Layout/EmptyLinesAroundClassBody:
-  Enabled: true
-
-# In a regular method definition, no empty lines around the body.
-Layout/EmptyLinesAroundMethodBody:
-  Enabled: true
-
-# In a regular module definition, no empty lines around the body.
-Layout/EmptyLinesAroundModuleBody:
-  Enabled: true
-
-# Align `end` with the matching keyword or starting expression except for
-# assignments, where it should be aligned with the LHS.
-Layout/EndAlignment:
-  Enabled: true
-  EnforcedStyleAlignWith: variable
-
-# Method definitions after `private` or `protected` isolated calls need one
-# extra level of indentation.
-#
-# We break this rule in context, though, e.g. for private-only concerns,
-# so we leave it disabled.
-Layout/IndentationConsistency:
-  Enabled: false
-  EnforcedStyle: indented_internal_methods
-
-# Detect hard tabs, no hard tabs.
-Layout/IndentationStyle:
-  Enabled: true
-
-# Two spaces, no tabs (for indentation).
-#
-# Doesn't behave properly with private-only concerns, so it's disabled.
-Layout/IndentationWidth:
-  Enabled: false
-
-Layout/LeadingCommentSpace:
-  Enabled: true
-
-Layout/SpaceAfterColon:
-  Enabled: true
-
-Layout/SpaceAfterComma:
-  Enabled: true
-
-Layout/SpaceAroundEqualsInParameterDefault:
-  Enabled: true
-
-Layout/SpaceAroundKeyword:
-  Enabled: true
-
-# Use `foo {}` not `foo{}`.
-Layout/SpaceBeforeBlockBraces:
-  Enabled: true
-
-Layout/SpaceBeforeComma:
-  Enabled: true
-
-Layout/SpaceBeforeFirstArg:
-  Enabled: true
-
-# Use `->(x, y) { x + y }` not `-> (x, y) { x + y }`
-Layout/SpaceInLambdaLiteral:
-  Enabled: true
-
-# Use `[ a, [ b, c ] ]` not `[a, [b, c]]`
-# Use `[]` not `[ ]`
-Layout/SpaceInsideArrayLiteralBrackets:
-  Enabled: true
-  EnforcedStyle: space
-  EnforcedStyleForEmptyBrackets: no_space
-
-# Use `%w[ a b ]` not `%w[ a   b ]`.
-Layout/SpaceInsideArrayPercentLiteral:
-  Enabled: true
-
-# Use `foo { bar }` not `foo {bar}`.
-# Use `foo { }` not `foo {}`.
-Layout/SpaceInsideBlockBraces:
-  Enabled: true
-  EnforcedStyleForEmptyBraces: space
-
-# Use `{ a: 1 }` not `{a:1}`.
-# Use `{}` not `{  }`.
-Layout/SpaceInsideHashLiteralBraces:
-  Enabled: true
-  EnforcedStyle: space
-  EnforcedStyleForEmptyBraces: no_space
-
-# Use `foo(bar)` not `foo( bar )`
-Layout/SpaceInsideParens:
-  Enabled: true
-
-# Requiring a space is not yet supported as of 0.59.2
-# Use `%w[ foo ]` not `%w[foo]`
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Enabled: false
-  #EnforcedStyle: space
-
-# Use `hash[:key]` not `hash[ :key ]`
-Layout/SpaceInsideReferenceBrackets:
-  Enabled: true
-
-# Blank lines should not have any spaces.
-Layout/TrailingEmptyLines:
-  Enabled: true
-
-# No trailing whitespace.
-Layout/TrailingWhitespace:
-  Enabled: true
-
-Lint/RedundantStringCoercion:
-  Enabled: true
-
-# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
-Lint/RequireParentheses:
-  Enabled: true
-
-Lint/UriEscapeUnescape:
-  Enabled: true
-
-Performance/FlatMap:
-  Enabled: true
-
-# Prefer assert_not over assert !
-Rails/AssertNot:
-  Include:
-    - "test/**/*"
-
-# Prefer assert_not_x over refute_x
-Rails/RefuteMethods:
-  Include:
-    - "test/**/*"
-
-# We generally prefer &&/|| but like low-precedence and/or in context
-Style/AndOr:
-  Enabled: false
-
-# Prefer Foo.method over Foo::method
-Style/ColonMethodCall:
-  Enabled: true
-
-Style/DefWithParentheses:
-  Enabled: true
-
-# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
-Style/HashSyntax:
-  Enabled: true
-  EnforcedShorthandSyntax: either
-
-# Defining a method with parameters needs parentheses.
-Style/MethodDefParentheses:
-  Enabled: true
-
-Style/ParenthesesAroundCondition:
-  Enabled: true
-
-Style/PercentLiteralDelimiters:
-  Enabled: true
-  PreferredDelimiters:
-    default: "()"
-    "%i": "[]"
-    "%I": "[]"
-    "%r": "{}"
-    "%w": "[]"
-    "%W": "[]"
-
-# Use quotes for string literals when they are enough.
-Style/RedundantPercentQ:
-  Enabled: false
-
-Style/RedundantReturn:
-  Enabled: true
-  AllowMultipleReturnValues: true
-
-Style/Semicolon:
-  Enabled: true
-  AllowAsExpressionSeparator: true
-
-Style/StabbyLambdaParentheses:
-  Enabled: true
-
-# Use `"foo"` not `'foo'` unless escaping is required
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
-  Include:
-    - "app/**/*"
+    - "tmp/**/*"
+    - "node_modules/**/*"
+    - "script/**/*"
+    - "log/**/*"
+    - "docker/**/*"
+    - "doc/**/*"
+    - "bin/**/*"
     - "config/**/*"
-    - "lib/**/*"
-    - "test/**/*"
-    - "Gemfile"
+    - "db/schema.rb"
 
-Style/TrailingCommaInArrayLiteral:
-  Enabled: true
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/**/*"
+    - "app/components/**/*"
 
-Style/TrailingCommaInHashLiteral:
+Metrics/BlockLength:
+  Exclude:
+    - "config/routes.rb"
+    - "spec/**/*"
+    - "app/admin/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/**.rb"
+    - "app/components/**/*"
+
+Metrics/ParameterLists:
+  Exclude:
+    - "app/components/**/*"
+
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - "db/seeds.rb"
+    - "app/components/**/*"
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
   Enabled: true
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Lint/MissingSuper:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: "exception"
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - "spec/**/*"
+
+Rails/ThreeStateBooleanColumn:
+  Exclude:
+    - db/migrate/20200213230911_create_users.rb
+    - db/migrate/20200213230911_create_users.rb
+    - db/migrate/20210525582813_add_apartment_build_fields_to_territories.rb
+    - db/migrate/20210627150506_create_db_congregations.rb
+    - db/migrate/20210630224755_create_db_public_talks.rb
+    - db/migrate/20210706143248_add_draft_to_public_talks.rb
+    - db/migrate/20210717180035_add_special_flag_to_public_talk.rb
+    - db/migrate/20210801151652_add_pending_verification_to_territories.rb
+
+Rails/AddColumnIndex:
+  Exclude:
+    - db/migrate/20210525582813_add_apartment_build_fields_to_territories.rb
+    - db/migrate/20210525582813_add_apartment_build_fields_to_territories.rb
+
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - spec/requests/congregation/publishers_request_spec.rb
+    - spec/requests/field_service/campaigns_request_spec.rb
+    - spec/requests/public_request_spec.rb
+    - spec/requests/public_talks/congregations_request_spec.rb
+    - spec/requests/public_talks/speakers_request_spec.rb
+    - spec/requests/public_talks/talks_request_spec.rb
+    - spec/requests/territories/apartment_building_territories_request_spec.rb
+    - spec/requests/territories/assignments_request_spec.rb
+    - spec/requests/territories/commercial_territories_request_spec.rb
+    - spec/requests/territories/contacts_request_spec.rb
+    - spec/requests/territories/phone_list_territories_request_spec.rb
+    - spec/requests/territories/regular_territories_request_spec.rb
+
+RSpec:
+  Exclude:
+    - "spec/factories/**/*"
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/ExpectChange:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/FilePath:
+  Exclude:
+    - "spec/requests/**/*"
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - "spec/requests/**/*"
+
+RSpec/NestedGroups:
+  Max: 4
+
+# while that is a good rule, AR objects can't be properly instance_double'd
+RSpec/VerifiedDoubles:
+  Enabled: false
