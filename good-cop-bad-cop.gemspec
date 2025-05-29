@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |s|
   s.name = 'good-cop-bad-cop'
   s.summary = 'Cops who get the job done.'
