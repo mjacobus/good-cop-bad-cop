@@ -10,10 +10,10 @@ Gem::Specification.new do |s|
   s.version = '1.0.0'
   s.platform = Gem::Platform::RUBY
 
-  s.add_dependency 'rubocop', '>= 1.74'
-  s.add_dependency 'rubocop-performance', '>= 1.24'
-  s.add_dependency 'rubocop-rails', '>= 2.30'
-  s.add_dependency 'rubocop-rspec', '>= 2.30'
+  s.add_dependency 'rubocop', '>= 1.75'
+  s.add_dependency 'rubocop-performance', '>= 1.25'
+  s.add_dependency 'rubocop-rails', '>= 2.32'
+  s.add_dependency 'rubocop-rspec', '>= 3.6'
 
   s.files = %w[rubocop.yml]
 end
