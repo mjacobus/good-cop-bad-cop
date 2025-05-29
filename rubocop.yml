@@ -1,9 +1,11 @@
 plugins:
   - rubocop-performance
   - rubocop-rails
-  - rubocop-rails
   - rubocop-rspec
   - rubocop-rake
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
 
 inherit_mode:
   merge:
@@ -106,6 +108,19 @@ Naming/PredicateName:
 Rails/SkipsModelValidations:
   Exclude:
     - "spec/**/*"
+
+# Because of packs-rails
+Rails/EnumHash:
+  Include:
+    - "**/app/models/**/*.rb"
+Rails/InverseOf:
+  Include:
+    - "**/app/models/**/*.rb"
+
+Rails/LexicallyScopedActionFilter:
+  Include:
+    - "**/app/controllers/**/*.rb"
+    - "**/app/mailers/**/*.rb"
 
 # RSpec/SpecFilePathFormat:
 #   Exclude:

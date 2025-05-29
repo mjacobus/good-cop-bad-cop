@@ -13,10 +13,13 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
 
   s.add_dependency 'rubocop', '>= 1.75'
+  s.add_dependency 'rubocop-capybara'
+  s.add_dependency 'rubocop-factory_bot'
   s.add_dependency 'rubocop-performance', '>= 1.25'
   s.add_dependency 'rubocop-rails', '>= 2.32'
   s.add_dependency 'rubocop-rake', '>= 0.7.1'
   s.add_dependency 'rubocop-rspec', '>= 3.6'
+  s.add_dependency 'rubocop-rspec_rails'
 
   s.files = %w[rubocop.yml]
   s.metadata['rubygems_mfa_required'] = 'true'
