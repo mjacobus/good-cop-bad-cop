@@ -151,3 +151,9 @@ Style/StringLiterals:
     - "lib/**/*"
     - "test/**/*"
     - "Gemfile"
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyle: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyle: consistent_comma
