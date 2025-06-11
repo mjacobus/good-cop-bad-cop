@@ -26,8 +26,25 @@ AllCops:
     - "config/**/*"
     - "db/schema.rb"
 
-  # AllCops:
-  #   SuggestExtensions: false
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - "db/seeds.rb"
+    - "app/components/**/*"
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
 Metrics/AbcSize:
   Exclude:
     - "db/migrate/**/*"
@@ -48,11 +65,61 @@ Metrics/ParameterLists:
   Exclude:
     - "app/components/**/*"
 
-Layout/LineLength:
-  Max: 100
+Naming/PredicateName:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: "exception"
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/EnumHash:
+  Include:
+    - "**/app/models/**/*.rb"
+
+Rails/InverseOf:
+  Include:
+    - "**/app/models/**/*.rb"
+
+Rails/LexicallyScopedActionFilter:
+  Include:
+    - "**/app/controllers/**/*.rb"
+    - "**/app/mailers/**/*.rb"
+
+Rails/SkipsModelValidations:
   Exclude:
-    - "db/seeds.rb"
-    - "app/components/**/*"
+    - "spec/**/*"
+    - "*/spec/**/*"
+
+RSpec:
+  Exclude:
+    - "spec/factories/**/*"
+
+RSpec/ExampleLength:
+  Max: 10
+  Exclude:
+    - "**/spec/requests/**/*"
+    - "**/spec/features/**/*"
+
+RSpec/ExpectChange:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - "spec/requests/**/*"
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/VerifiedDoubles:
+  Enabled: false
 
 Style/AccessorGrouping:
   Enabled: false
@@ -75,7 +142,6 @@ Style/IfUnlessModifier:
 Style/NegatedIf:
   Enabled: false
 
-# Use `"foo"` not `'foo'` unless escaping is required
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
@@ -85,73 +151,3 @@ Style/StringLiterals:
     - "lib/**/*"
     - "test/**/*"
     - "Gemfile"
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/MultilineOperationIndentation:
-  Enabled: true
-  EnforcedStyle: indented
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Lint/MissingSuper:
-  Enabled: false
-
-Naming/RescuedExceptionsVariableName:
-  PreferredName: "exception"
-
-Naming/PredicateName:
-  Enabled: false
-
-Rails/SkipsModelValidations:
-  Exclude:
-    - "spec/**/*"
-
-# Because of packs-rails
-Rails/EnumHash:
-  Include:
-    - "**/app/models/**/*.rb"
-Rails/InverseOf:
-  Include:
-    - "**/app/models/**/*.rb"
-
-Rails/LexicallyScopedActionFilter:
-  Include:
-    - "**/app/controllers/**/*.rb"
-    - "**/app/mailers/**/*.rb"
-
-# RSpec/SpecFilePathFormat:
-#   Exclude:
-
-RSpec:
-  Exclude:
-    - "spec/factories/**/*"
-
-RSpec/ExampleLength:
-  Max: 10
-
-RSpec/ExpectChange:
-  Enabled: false
-
-RSpec/MessageChain:
-  Enabled: false
-
-# RSpec/FilePath:
-#   Exclude:
-#     - "spec/requests/**/*"
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Exclude:
-    - "spec/requests/**/*"
-
-RSpec/NestedGroups:
-  Max: 4
-
-# while that is a good rule, AR objects can't be properly instance_double'd
-RSpec/VerifiedDoubles:
-  Enabled: false
