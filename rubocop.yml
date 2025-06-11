@@ -65,6 +65,9 @@ Metrics/ParameterLists:
   Exclude:
     - "app/components/**/*"
 
+Naming/PredicateMethod:
+  Enabled: false
+
 Naming/PredicatePrefix:
   Enabled: false
 
